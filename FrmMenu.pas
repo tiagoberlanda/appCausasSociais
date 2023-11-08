@@ -77,6 +77,7 @@ begin
   Application.MainForm := FormPrincipal;
   //volta informação do usuário para o form
   FormPrincipal.Label_nomeUsuario.tagString := label_nome.TagString;
+  FormPrincipal.Label_nomeUsuario.Text := DM_Conexao.RetornaNomePeloEmail(label_nome.TagString);
 
   FormPrincipal.show;
   FormMenu.Close;
@@ -90,6 +91,7 @@ begin
   Application.MainForm := FormPrincipal;
   //volta informação do usuário para o form
   FormPrincipal.Label_nomeUsuario.tagString := label_nome.TagString;
+  FormPrincipal.Label_nomeUsuario.Text := DM_Conexao.RetornaNomePeloEmail(label_nome.TagString);
 
   FormPrincipal.show;
   FormMenu.Close;

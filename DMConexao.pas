@@ -29,6 +29,8 @@ type
     function RetornaAdmPeloEmail(email: string): Boolean;
     function VerificaUsuarioAtivo(email: string): Boolean;
     procedure ModificaUsuario(usuario, senha, nome: string; ativo,nivel, id: integer);
+    function verificaProjeto(nome: string): Boolean;
+    function InsereProjeto (nome: string): boolean;
   end;
 
 var
@@ -163,6 +165,33 @@ begin
 
 end;
 
+function TDM_Conexao.verificaProjeto(nome: string): Boolean;
+begin
+  // Inicia Conexão no Banco
+  if DM_Conexao.FD_Conexao.Connected = False then
+  begin
+   DM_Conexao.FD_Conexao.Connected := True;
+  end;
+
+  DM_Conexao.FD_Query.Close;
+  DM_Conexao.FD_Query.SQL.Clear;
+  DM_Conexao.FD_Query.sql.add('select count(id) as total from projeto where nome = :nome');
+  DM_Conexao.FD_Query.ParamByName('nome').AsString := nome;
+  DM_Conexao.FD_Query.Open;
+
+  if DM_Conexao.FD_Query.FieldByName('total').AsInteger = 1 then
+  begin
+    Result := True; //Existe um projeto com esse nome
+  end
+  else
+  begin
+    Result := False; //Não existe um projeto com esse nome
+  end;
+
+
+
+end;
+
 function TDM_Conexao.VerificaUsuarioAtivo(email: string): Boolean;
 begin
   // Inicia Conexão no Banco
@@ -217,6 +246,42 @@ end;
 
 
 //Faz a inserção de um usuário, nome e senha na base   (cadastro novo)
+function TDM_Conexao.InsereProjeto(nome: string): boolean;
+var
+  Erro: Boolean;
+begin
+  //Inicia Conexão
+  if DM_Conexao.FD_Conexao.Connected = False then
+  begin
+    DM_Conexao.FD_Conexao.Connected := True;
+  end;
+
+  DM_Conexao.FD_Query.Close;
+  DM_Conexao.FD_Query.SQL.Clear;
+
+  try
+    try
+      DM_Conexao.FD_Query.SQL.Add('insert into projeto (nome) Values (:nome)');
+      DM_Conexao.FD_Query.ParamByName('nome').AsString := nome;
+      DM_Conexao.FD_Query.ExecSQL;
+       Erro := False;
+    except
+      Erro := True;
+    end;
+  finally
+    if Erro then
+    begin
+      Result := False; //Se retornar False é que deu algum erro
+    end
+    else
+    begin
+      Result := True; //Se retornar True é porque está tudo certo
+    end;
+
+  end;
+
+end;
+
 procedure TDM_Conexao.InserirUsuario(usuario, senha, nome: string; ativo, nivel: integer);
 begin
   //Inicia Conexão

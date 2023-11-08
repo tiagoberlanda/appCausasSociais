@@ -9,7 +9,7 @@ uses
 
 type
   TFormAdministracao = class(TForm_base)
-    Image1: TImage;
+    Image_voltar: TImage;
     Label_nome: TLabel;
     Layout_central: TLayout;
     RoundRect1: TRoundRect;
@@ -25,7 +25,7 @@ type
     Image3: TImage;
     Image4: TImage;
     Image5: TImage;
-    procedure Image1Click(Sender: TObject);
+    procedure Image_voltarClick(Sender: TObject);
     procedure Label_sairClick(Sender: TObject);
     procedure Label_usuariosClick(Sender: TObject);
     procedure Label_addCausaBdClick(Sender: TObject);
@@ -43,9 +43,9 @@ implementation
 
 {$R *.fmx}
 
-uses FrmMenu, FrmUsuarios;
+uses FrmMenu, FrmUsuarios, FrmCausas, FrmProjetos;
 
-procedure TFormAdministracao.Image1Click(Sender: TObject);
+procedure TFormAdministracao.Image_voltarClick(Sender: TObject);
 begin
   inherited;
   FormMenu := TformMenu.Create(self);
@@ -61,13 +61,25 @@ end;
 procedure TFormAdministracao.Label_addCausaBdClick(Sender: TObject);
 begin
   inherited;
-  ShowMessage( 'Funcionalidade em Desenvolvimento');
+  FormProjetos := TFormProjetos.Create(self);
+  application.MainForm := FormProjetos;
+
+  FormProjetos.Label_nome.TagString := Label_nome.TagString;
+
+  FormProjetos.Show;
+  FormAdministracao.Close;
 end;
 
 procedure TFormAdministracao.Label_CausaClick(Sender: TObject);
 begin
   inherited;
-  ShowMessage( 'Funcionalidade em Desenvolvimento');
+  FormCausas := TformCausas.Create(self);
+  Application.MainForm := FormCausas;
+
+  FormCausas.Label_nome.TagString := Label_nome.TagString;
+
+  FormCausas.Show;
+  FormAdministracao.close;
 end;
 
 procedure TFormAdministracao.Label_sairClick(Sender: TObject);
