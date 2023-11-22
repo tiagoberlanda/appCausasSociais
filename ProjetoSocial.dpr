@@ -13,7 +13,8 @@ uses
   FrmUsuariosAdm in 'FrmUsuariosAdm.pas' {FormUsuariosAdm},
   FrmCausas in 'FrmCausas.pas' {FormCausas},
   FrmProjetos in 'FrmProjetos.pas' {FormProjetos},
-  FrmProjetoAdd in 'FrmProjetoAdd.pas' {FormProjetoAdd};
+  FrmProjetoAdd in 'FrmProjetoAdd.pas' {FormProjetoAdd},
+  FrmCausasAdd in 'FrmCausasAdd.pas' {FormCausasAdd};
 
 {$R *.res}
 
@@ -21,8 +22,5 @@ begin
   Application.Initialize;
   Application.CreateForm(TDM_Conexao, DM_Conexao);
   Application.CreateForm(TFormLogin, FormLogin);
-  Application.CreateForm(TFormCausas, FormCausas);
-  Application.CreateForm(TFormProjetos, FormProjetos);
-  Application.CreateForm(TFormProjetoAdd, FormProjetoAdd);
   Application.Run;
 end.

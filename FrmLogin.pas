@@ -48,6 +48,7 @@ type
     RoundRect10: TRoundRect;
     RoundRect11: TRoundRect;
     Label_acessar: TLabel;
+    Label_versao: TLabel;
     procedure Label_criarContaClick(Sender: TObject);
     procedure Label_acessarContaClick(Sender: TObject);
     procedure Label_CriaContaCadClick(Sender: TObject);

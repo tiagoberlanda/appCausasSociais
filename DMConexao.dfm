@@ -16,8 +16,17 @@ object DM_Conexao: TDM_Conexao
   object FD_Query: TFDQuery
     Connection = FD_Conexao
     SQL.Strings = (
-      '')
+      
+        '          select id,nome,idProjeto,ondeEncontrar,ComoAjudar,Obje' +
+        'tivo from causas Where id = :id')
     Left = 128
     Top = 288
+    ParamData = <
+      item
+        Name = 'ID'
+        DataType = ftString
+        ParamType = ptInput
+        Value = '4'
+      end>
   end
 end

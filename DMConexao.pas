@@ -31,6 +31,10 @@ type
     procedure ModificaUsuario(usuario, senha, nome: string; ativo,nivel, id: integer);
     function verificaProjeto(nome: string): Boolean;
     function InsereProjeto (nome: string): boolean;
+    function InsereCausa(nome,objetivo,ondeEncontrar,comoAjudar: string; idProjeto: integer):Boolean;
+    function AlteraCausa(nome,objetivo,ondeEncontrar,comoAjudar: string; id,idProjeto: integer):Boolean;
+    function RetornaNomeProjetoId(id: integer): string;
+    function ExcluiCausaId(id: integer): Boolean;
   end;
 
 var
@@ -63,7 +67,83 @@ end;
 
 
 
+function TDM_Conexao.ExcluiCausaId(id: integer): Boolean;
+var
+  Erro: boolean;
+begin
+
+  FD_Conexao.Close;
+  FD_Conexao.Open();
+  FD_Query.Close;
+  FD_Query.SQL.Clear;
+
+
+  try
+    try
+      FD_Query.SQL.Add('delete from causas where id = :id');
+
+      FD_Query.ParamByName('id').AsInteger := id;
+      FD_Query.ExecSQL;
+      Erro := False;
+    except
+      Erro := True;
+    end;
+  finally
+    if Erro = True then
+    begin
+      Result := False; //Se retornar False é que deu algum erro
+    end
+    else
+    begin
+      Result := True; //Se retornar True é porque está tudo certo
+    end;
+
+  end;
+
+end;
+
 // Função de Criptografia
+function TDM_Conexao.AlteraCausa(nome, objetivo, ondeEncontrar,
+  comoAjudar: string; id,idProjeto: integer): Boolean;
+var
+  Erro: boolean;
+begin
+ 
+  FD_Conexao.Close;
+  FD_Conexao.Open();
+  FD_Query.Close;
+  FD_Query.SQL.Clear;
+
+  try
+    try
+      FD_Query.SQL.Add('update causas SET nome = :nome, idProjeto = :idProjeto, ' +
+      'OndeEncontrar = :ondeEncontrar, ComoAjudar = :comoAjudar , Objetivo = :objetivo '+ 
+      'where id = :id');
+       FD_Query.ParamByName('id').AsInteger := id;
+      FD_Query.ParamByName('nome').AsString := nome;
+      FD_Query.ParamByName('idProjeto').AsInteger := idProjeto;
+      FD_Query.ParamByName('OndeEncontrar').AsString := ondeEncontrar;
+      FD_Query.ParamByName('ComoAjudar').AsString := comoAjudar;
+      FD_Query.ParamByName('Objetivo').AsString := objetivo;
+
+      FD_Query.ExecSQL;
+      Erro := False;
+    except
+      Erro := True;
+    end;
+  finally
+    if Erro = True then
+    begin
+      Result := False; //Se retornar False é que deu algum erro
+    end
+    else
+    begin
+      Result := True; //Se retornar True é porque está tudo certo
+    end;
+
+  end;
+end;
+
 function TDM_Conexao.Criptografa(Action, Src: String): String;
 Label Fim;
 var KeyLen, KeyPos, OffSet, SrcPos, SrcAsc, TmpSrcAsc, Range : Integer;
@@ -136,11 +216,8 @@ end;
 function TDM_Conexao.ValidarUsuario(usuario, senha: string): Boolean;
 begin
    // Inicia Conexão no Banco
-  if DM_Conexao.FD_Conexao.Connected = False then
-  begin
-    DM_Conexao.FD_Conexao.Connected := True;
-  end;
-
+  DM_Conexao.FD_Conexao.Close;
+  DM_Conexao.FD_Conexao.Open();
   DM_Conexao.FD_Query.Close;
   DM_Conexao.FD_Query.SQL.Clear;
   DM_Conexao.FD_Query.SQL.Add('SELECT email,senha FROM usuario WHERE email = :email');  //verifica se o usuário está ativo
@@ -168,11 +245,8 @@ end;
 function TDM_Conexao.verificaProjeto(nome: string): Boolean;
 begin
   // Inicia Conexão no Banco
-  if DM_Conexao.FD_Conexao.Connected = False then
-  begin
-   DM_Conexao.FD_Conexao.Connected := True;
-  end;
-
+  DM_Conexao.FD_Conexao.Close;
+  DM_Conexao.FD_Conexao.Open();
   DM_Conexao.FD_Query.Close;
   DM_Conexao.FD_Query.SQL.Clear;
   DM_Conexao.FD_Query.sql.add('select count(id) as total from projeto where nome = :nome');
@@ -195,11 +269,8 @@ end;
 function TDM_Conexao.VerificaUsuarioAtivo(email: string): Boolean;
 begin
   // Inicia Conexão no Banco
-  if DM_Conexao.FD_Conexao.Connected = False then
-  begin
-   DM_Conexao.FD_Conexao.Connected := True;
-  end;
-
+  DM_Conexao.FD_Conexao.Close;
+  DM_Conexao.FD_Conexao.Open();
   DM_Conexao.FD_Query.Close;
   DM_Conexao.FD_Query.SQL.Clear;
   DM_Conexao.FD_Query.SQL.Add('SELECT ativo FROM usuario WHERE email = :email');
@@ -222,10 +293,8 @@ end;
 function TDM_Conexao.ValidarCadastro(usuario: string): Boolean;
 begin
   // Inicia Conexão no Banco
-  if DM_Conexao.FD_Conexao.Connected = False then
-  begin
-   DM_Conexao.FD_Conexao.Connected := True;
-  end;
+  DM_Conexao.FD_Conexao.Close;
+  DM_Conexao.FD_Conexao.Open();
 
   DM_Conexao.FD_Query.Close;
   DM_Conexao.FD_Query.SQL.Clear;
@@ -245,17 +314,56 @@ begin
 end;
 
 
-//Faz a inserção de um usuário, nome e senha na base   (cadastro novo)
+
+function TDM_Conexao.InsereCausa(nome, objetivo, ondeEncontrar,
+  comoAjudar: string; idProjeto: integer): Boolean;
+var
+  Erro: Boolean;
+begin
+
+  FD_Conexao.Close;
+  FD_Conexao.Open();
+  FD_Query.Close;
+  FD_Query.SQL.Clear;
+
+
+  try
+    try
+      FD_Query.SQL.Add('insert into causas (nome,idProjeto,OndeEncontrar,ComoAjudar, ' +
+      'Objetivo) Values (:nome,:idProjeto,:ondeEncontrar,:comoAjudar,:objetivo) ');
+
+      FD_Query.ParamByName('nome').AsString := nome;
+      FD_Query.ParamByName('idProjeto').AsInteger := idProjeto;
+      FD_Query.ParamByName('OndeEncontrar').AsString := ondeEncontrar;
+      FD_Query.ParamByName('ComoAjudar').AsString := comoAjudar;
+      FD_Query.ParamByName('Objetivo').AsString := objetivo;
+
+      FD_Query.ExecSQL;
+      Erro := False;
+    except
+      Erro := True;
+    end;
+  finally
+    if Erro = True then
+    begin
+      Result := False; //Se retornar False é que deu algum erro
+    end
+    else
+    begin
+      Result := True; //Se retornar True é porque está tudo certo
+    end;
+
+  end;
+
+end;
+
 function TDM_Conexao.InsereProjeto(nome: string): boolean;
 var
   Erro: Boolean;
 begin
   //Inicia Conexão
-  if DM_Conexao.FD_Conexao.Connected = False then
-  begin
-    DM_Conexao.FD_Conexao.Connected := True;
-  end;
-
+  DM_Conexao.FD_Conexao.Close;
+  DM_Conexao.FD_Conexao.Open();
   DM_Conexao.FD_Query.Close;
   DM_Conexao.FD_Query.SQL.Clear;
 
@@ -269,7 +377,7 @@ begin
       Erro := True;
     end;
   finally
-    if Erro then
+    if Erro = True then
     begin
       Result := False; //Se retornar False é que deu algum erro
     end
@@ -285,11 +393,8 @@ end;
 procedure TDM_Conexao.InserirUsuario(usuario, senha, nome: string; ativo, nivel: integer);
 begin
   //Inicia Conexão
-  if DM_Conexao.FD_Conexao.Connected = False then
-  begin
-    DM_Conexao.FD_Conexao.Connected := True;
-  end;
-
+  DM_Conexao.FD_Conexao.Close;
+  DM_Conexao.FD_Conexao.Open();
   DM_Conexao.FD_Query.Close;
   DM_Conexao.FD_Query.SQL.Clear;
   DM_Conexao.FD_Query.SQL.Add('INSERT INTO usuario (email,nome,senha,ativo,nivel) VALUES (:email,:nome,:senha,:ativo,:nivel); ');
@@ -306,11 +411,8 @@ end;
 procedure TDM_Conexao.ModificaUsuario(usuario, senha, nome: string; ativo, nivel,id: integer);
 begin
   //Inicia Conexão
-  if DM_Conexao.FD_Conexao.Connected = False then
-  begin
-    DM_Conexao.FD_Conexao.Connected := True;
-  end;
-
+  DM_Conexao.FD_Conexao.Close;
+  DM_Conexao.FD_Conexao.Open();
   DM_Conexao.FD_Query.Close;
   DM_Conexao.FD_Query.SQL.Clear;
   DM_Conexao.FD_Query.SQL.Add('UPDATE usuario SET email = :email ,nome = :nome ,senha = :senha ,ativo = :ativo ,nivel = :nivel '+
@@ -330,11 +432,8 @@ var
   adm: integer;
 begin
   //Inicia Conexão
-  if DM_Conexao.FD_Conexao.Connected = False then
-  begin
-    DM_Conexao.FD_Conexao.Connected := True;
-  end;
-
+  DM_Conexao.FD_Conexao.Close;
+  DM_Conexao.FD_Conexao.Open();
   DM_Conexao.FD_Query.Close;
   DM_Conexao.FD_Query.SQL.Clear;
   DM_Conexao.FD_Query.SQL.Add('select nivel from usuario where email = :email ');
@@ -356,16 +455,29 @@ end;
 function TDM_Conexao.RetornaNomePeloEmail(email: string): string;
 begin
 //Inicia Conexão
-  if DM_Conexao.FD_Conexao.Connected = False then
-  begin
-    DM_Conexao.FD_Conexao.Connected := True;
-  end;
+  DM_Conexao.FD_Conexao.Close;
+  DM_Conexao.FD_Conexao.Open();
 
   DM_Conexao.FD_Query.Close;
   DM_Conexao.FD_Query.SQL.Clear;
   DM_Conexao.FD_Query.SQL.Add('select nome from usuario where email = :email ');
   DM_Conexao.FD_Query.ParamByName('email').AsString := email;
   DM_Conexao.FD_Query.Open();
+  Result := DM_Conexao.FD_Query.FieldByName('nome').AsString;
+end;
+
+function TDM_Conexao.RetornaNomeProjetoId(id: integer): string;
+begin
+ //Inicia Conexão
+  DM_Conexao.FD_Conexao.Close;
+  DM_Conexao.FD_Conexao.Open();
+
+  DM_Conexao.FD_Query.Close;
+  DM_Conexao.FD_Query.SQL.Clear;
+  DM_Conexao.FD_Query.SQL.Add('select nome from projeto where id = :id');
+  DM_Conexao.FD_Query.ParamByName('id').AsInteger := id;
+  DM_Conexao.FD_Query.Open();
+
   Result := DM_Conexao.FD_Query.FieldByName('nome').AsString;
 end;
 

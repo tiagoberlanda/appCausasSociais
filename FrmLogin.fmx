@@ -13,7 +13,7 @@ object FormLogin: TFormLogin
   object TabControlLogin: TTabControl
     Align = Client
     Size.Width = 372.000000000000000000
-    Size.Height = 592.000000000000000000
+    Size.Height = 573.000000000000000000
     Size.PlatformDefault = False
     TabHeight = 49.000000000000000000
     TabIndex = 0
@@ -21,9 +21,9 @@ object FormLogin: TFormLogin
     TabPosition = None
     Sizes = (
       372s
-      592s
+      573s
       372s
-      592s)
+      573s)
     object TabLogin: TTabItem
       CustomIcon = <
         item
@@ -114,12 +114,12 @@ object FormLogin: TFormLogin
       end
       object Layout_Central: TLayout
         Align = Client
-        Margins.Left = 30.000000000000000000
-        Margins.Top = 30.000000000000000000
-        Margins.Right = 30.000000000000000000
-        Margins.Bottom = 30.000000000000000000
-        Size.Width = 312.000000000000000000
-        Size.Height = 432.000000000000000000
+        Margins.Left = 5.000000000000000000
+        Margins.Top = 10.000000000000000000
+        Margins.Right = 5.000000000000000000
+        Margins.Bottom = 5.000000000000000000
+        Size.Width = 362.000000000000000000
+        Size.Height = 458.000000000000000000
         Size.PlatformDefault = False
         TabOrder = 1
         object Label3: TLabel
@@ -127,7 +127,7 @@ object FormLogin: TFormLogin
           StyledSettings = [Family, Style, FontColor]
           Margins.Top = 30.000000000000000000
           Position.Y = 95.000000000000000000
-          Size.Width = 312.000000000000000000
+          Size.Width = 362.000000000000000000
           Size.Height = 25.000000000000000000
           Size.PlatformDefault = False
           TextSettings.Font.Size = 16.000000000000000000
@@ -144,7 +144,7 @@ object FormLogin: TFormLogin
           Margins.Bottom = 10.000000000000000000
           Position.X = 10.000000000000000000
           Position.Y = 130.000000000000000000
-          Size.Width = 292.000000000000000000
+          Size.Width = 342.000000000000000000
           Size.Height = 50.000000000000000000
           Size.PlatformDefault = False
           object Edit_email: TEdit
@@ -155,7 +155,7 @@ object FormLogin: TFormLogin
             TextSettings.Font.Size = 16.000000000000000000
             Margins.Left = 20.000000000000000000
             Margins.Right = 20.000000000000000000
-            Size.Width = 252.000000000000000000
+            Size.Width = 302.000000000000000000
             Size.Height = 32.000000000000000000
             Size.PlatformDefault = False
             TextPrompt = 'E-mail'
@@ -165,7 +165,7 @@ object FormLogin: TFormLogin
         object Label4: TLabel
           Align = Top
           StyledSettings = [Family, FontColor]
-          Size.Width = 312.000000000000000000
+          Size.Width = 362.000000000000000000
           Size.Height = 65.000000000000000000
           Size.PlatformDefault = False
           TextSettings.Font.Size = 36.000000000000000000
@@ -183,7 +183,7 @@ object FormLogin: TFormLogin
           Margins.Bottom = 10.000000000000000000
           Position.X = 10.000000000000000000
           Position.Y = 200.000000000000000000
-          Size.Width = 292.000000000000000000
+          Size.Width = 342.000000000000000000
           Size.Height = 50.000000000000000000
           Size.PlatformDefault = False
           object Edit_senha: TEdit
@@ -195,7 +195,7 @@ object FormLogin: TFormLogin
             TextSettings.Font.Size = 16.000000000000000000
             Margins.Left = 20.000000000000000000
             Margins.Right = 20.000000000000000000
-            Size.Width = 252.000000000000000000
+            Size.Width = 302.000000000000000000
             Size.Height = 32.000000000000000000
             Size.PlatformDefault = False
             TextPrompt = 'Senha'
@@ -206,8 +206,8 @@ object FormLogin: TFormLogin
           Align = Bottom
           Fill.Color = xFF0098ED
           Margins.Bottom = 20.000000000000000000
-          Position.Y = 362.000000000000000000
-          Size.Width = 312.000000000000000000
+          Position.Y = 388.000000000000000000
+          Size.Width = 362.000000000000000000
           Size.Height = 50.000000000000000000
           Size.PlatformDefault = False
           OnClick = Label_acessarClick
@@ -215,7 +215,7 @@ object FormLogin: TFormLogin
             Align = Client
             StyledSettings = [Family, Style]
             HitTest = True
-            Size.Width = 312.000000000000000000
+            Size.Width = 362.000000000000000000
             Size.Height = 50.000000000000000000
             Size.PlatformDefault = False
             TextSettings.Font.Size = 18.000000000000000000
@@ -232,7 +232,7 @@ object FormLogin: TFormLogin
           Margins.Right = 10.000000000000000000
           Position.X = 30.000000000000000000
           Position.Y = 260.000000000000000000
-          Size.Width = 272.000000000000000000
+          Size.Width = 322.000000000000000000
           Size.Height = 19.000000000000000000
           Size.PlatformDefault = False
           TabOrder = 3
@@ -256,12 +256,12 @@ object FormLogin: TFormLogin
       ExplicitSize.cy = 8.000000000000000000
       object Layout1: TLayout
         Align = Client
-        Margins.Left = 30.000000000000000000
-        Margins.Top = 30.000000000000000000
-        Margins.Right = 30.000000000000000000
-        Margins.Bottom = 30.000000000000000000
-        Size.Width = 312.000000000000000000
-        Size.Height = 432.000000000000000000
+        Margins.Left = 5.000000000000000000
+        Margins.Top = 10.000000000000000000
+        Margins.Right = 5.000000000000000000
+        Margins.Bottom = 5.000000000000000000
+        Size.Width = 362.000000000000000000
+        Size.Height = 458.000000000000000000
         Size.PlatformDefault = False
         TabOrder = 1
         object Label6: TLabel
@@ -269,7 +269,7 @@ object FormLogin: TFormLogin
           StyledSettings = [Family, Style, FontColor]
           Margins.Top = 30.000000000000000000
           Position.Y = 95.000000000000000000
-          Size.Width = 312.000000000000000000
+          Size.Width = 362.000000000000000000
           Size.Height = 25.000000000000000000
           Size.PlatformDefault = False
           TextSettings.Font.Size = 16.000000000000000000
@@ -286,7 +286,7 @@ object FormLogin: TFormLogin
           Margins.Bottom = 10.000000000000000000
           Position.X = 10.000000000000000000
           Position.Y = 200.000000000000000000
-          Size.Width = 292.000000000000000000
+          Size.Width = 342.000000000000000000
           Size.Height = 50.000000000000000000
           Size.PlatformDefault = False
           object Edit_emailCad: TEdit
@@ -297,7 +297,7 @@ object FormLogin: TFormLogin
             TextSettings.Font.Size = 16.000000000000000000
             Margins.Left = 20.000000000000000000
             Margins.Right = 20.000000000000000000
-            Size.Width = 252.000000000000000000
+            Size.Width = 302.000000000000000000
             Size.Height = 32.000000000000000000
             Size.PlatformDefault = False
             TextPrompt = 'E-mail'
@@ -307,7 +307,7 @@ object FormLogin: TFormLogin
         object Label7: TLabel
           Align = Top
           StyledSettings = [Family, FontColor]
-          Size.Width = 312.000000000000000000
+          Size.Width = 362.000000000000000000
           Size.Height = 65.000000000000000000
           Size.PlatformDefault = False
           TextSettings.Font.Size = 36.000000000000000000
@@ -325,7 +325,7 @@ object FormLogin: TFormLogin
           Margins.Bottom = 10.000000000000000000
           Position.X = 10.000000000000000000
           Position.Y = 270.000000000000000000
-          Size.Width = 292.000000000000000000
+          Size.Width = 342.000000000000000000
           Size.Height = 50.000000000000000000
           Size.PlatformDefault = False
           object Edit_senhaCad: TEdit
@@ -336,7 +336,7 @@ object FormLogin: TFormLogin
             TextSettings.Font.Size = 16.000000000000000000
             Margins.Left = 20.000000000000000000
             Margins.Right = 20.000000000000000000
-            Size.Width = 252.000000000000000000
+            Size.Width = 302.000000000000000000
             Size.Height = 32.000000000000000000
             Size.PlatformDefault = False
             TextPrompt = 'Senha'
@@ -347,8 +347,8 @@ object FormLogin: TFormLogin
           Align = Bottom
           Fill.Color = xFF0098ED
           Margins.Bottom = 20.000000000000000000
-          Position.Y = 362.000000000000000000
-          Size.Width = 312.000000000000000000
+          Position.Y = 388.000000000000000000
+          Size.Width = 362.000000000000000000
           Size.Height = 50.000000000000000000
           Size.PlatformDefault = False
           OnClick = Label_CriaContaCadClick
@@ -356,7 +356,7 @@ object FormLogin: TFormLogin
             Align = Client
             StyledSettings = [Family, Style]
             HitTest = True
-            Size.Width = 312.000000000000000000
+            Size.Width = 362.000000000000000000
             Size.Height = 50.000000000000000000
             Size.PlatformDefault = False
             TextSettings.Font.Size = 18.000000000000000000
@@ -376,7 +376,7 @@ object FormLogin: TFormLogin
           Margins.Bottom = 10.000000000000000000
           Position.X = 10.000000000000000000
           Position.Y = 130.000000000000000000
-          Size.Width = 292.000000000000000000
+          Size.Width = 342.000000000000000000
           Size.Height = 50.000000000000000000
           Size.PlatformDefault = False
           object Edit_nomeCad: TEdit
@@ -387,7 +387,7 @@ object FormLogin: TFormLogin
             TextSettings.Font.Size = 16.000000000000000000
             Margins.Left = 20.000000000000000000
             Margins.Right = 20.000000000000000000
-            Size.Width = 252.000000000000000000
+            Size.Width = 302.000000000000000000
             Size.Height = 32.000000000000000000
             Size.PlatformDefault = False
             TextPrompt = 'Nome'
@@ -472,5 +472,17 @@ object FormLogin: TFormLogin
         end
       end
     end
+  end
+  object Label_versao: TLabel
+    Align = Bottom
+    StyledSettings = [Style, FontColor]
+    Position.Y = 573.000000000000000000
+    Size.Width = 372.000000000000000000
+    Size.Height = 19.000000000000000000
+    Size.PlatformDefault = False
+    TextSettings.Font.Family = 'Arial'
+    TextSettings.HorzAlign = Center
+    Text = 'Vers'#227'o:  1.0.2'
+    TabOrder = 2
   end
 end

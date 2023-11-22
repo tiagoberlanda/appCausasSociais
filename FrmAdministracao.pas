@@ -28,8 +28,8 @@ type
     procedure Image_voltarClick(Sender: TObject);
     procedure Label_sairClick(Sender: TObject);
     procedure Label_usuariosClick(Sender: TObject);
-    procedure Label_addCausaBdClick(Sender: TObject);
     procedure Label_CausaClick(Sender: TObject);
+    procedure Label_addCausaBdClick(Sender: TObject);
   private
     { Private declarations }
   public
@@ -61,25 +61,27 @@ end;
 procedure TFormAdministracao.Label_addCausaBdClick(Sender: TObject);
 begin
   inherited;
-  FormProjetos := TFormProjetos.Create(self);
+  FormProjetos := TFormProjetos.Create(Self);
   application.MainForm := FormProjetos;
 
-  FormProjetos.Label_nome.TagString := Label_nome.TagString;
+  FormProjetos.Label_nome.TagString := label_nome.TagString;
 
   FormProjetos.Show;
   FormAdministracao.Close;
+
 end;
 
 procedure TFormAdministracao.Label_CausaClick(Sender: TObject);
 begin
   inherited;
-  FormCausas := TformCausas.Create(self);
+  FormCausas := TFormCausas.Create(self);
   Application.MainForm := FormCausas;
 
   FormCausas.Label_nome.TagString := Label_nome.TagString;
 
   FormCausas.Show;
-  FormAdministracao.close;
+  FormAdministracao.Close;
+
 end;
 
 procedure TFormAdministracao.Label_sairClick(Sender: TObject);

@@ -97,7 +97,7 @@ inherited FormProjetoAdd: TFormProjetoAdd
     Size.Width = 372.000000000000000000
     Size.Height = 492.000000000000000000
     Size.PlatformDefault = False
-    TabIndex = 1
+    TabIndex = 0
     TabOrder = 1
     TabPosition = None
     Sizes = (
@@ -109,7 +109,7 @@ inherited FormProjetoAdd: TFormProjetoAdd
       CustomIcon = <
         item
         end>
-      IsSelected = False
+      IsSelected = True
       Size.Width = 8.000000000000000000
       Size.Height = 8.000000000000000000
       Size.PlatformDefault = False
@@ -120,18 +120,24 @@ inherited FormProjetoAdd: TFormProjetoAdd
       ExplicitSize.cy = 8.000000000000000000
       object Layout_centralAdd: TLayout
         Align = Client
-        Margins.Left = 30.000000000000000000
-        Margins.Top = 30.000000000000000000
-        Margins.Right = 30.000000000000000000
-        Margins.Bottom = 30.000000000000000000
-        Size.Width = 312.000000000000000000
-        Size.Height = 432.000000000000000000
+        Margins.Left = 5.000000000000000000
+        Margins.Top = 10.000000000000000000
+        Margins.Right = 5.000000000000000000
+        Margins.Bottom = 5.000000000000000000
+        Size.Width = 362.000000000000000000
+        Size.Height = 477.000000000000000000
         Size.PlatformDefault = False
         TabOrder = 0
         object Rectangle_principal: TRectangle
           Align = Top
           Fill.Color = xFF0098ED
-          Size.Width = 312.000000000000000000
+          Margins.Left = 5.000000000000000000
+          Margins.Top = 5.000000000000000000
+          Margins.Right = 5.000000000000000000
+          Margins.Bottom = 5.000000000000000000
+          Position.X = 5.000000000000000000
+          Position.Y = 5.000000000000000000
+          Size.Width = 352.000000000000000000
           Size.Height = 193.000000000000000000
           Size.PlatformDefault = False
           XRadius = 25.000000000000000000
@@ -144,7 +150,7 @@ inherited FormProjetoAdd: TFormProjetoAdd
             Margins.Right = 20.000000000000000000
             Position.X = 20.000000000000000000
             Position.Y = 39.000000000000000000
-            Size.Width = 272.000000000000000000
+            Size.Width = 312.000000000000000000
             Size.Height = 50.000000000000000000
             Size.PlatformDefault = False
             XRadius = 25.000000000000000000
@@ -158,7 +164,7 @@ inherited FormProjetoAdd: TFormProjetoAdd
               Margins.Top = 10.000000000000000000
               Margins.Right = 15.000000000000000000
               Margins.Bottom = 10.000000000000000000
-              Size.Width = 242.000000000000000000
+              Size.Width = 282.000000000000000000
               Size.Height = 30.000000000000000000
               Size.PlatformDefault = False
               TextPrompt = 'Nome do Projeto'
@@ -171,7 +177,7 @@ inherited FormProjetoAdd: TFormProjetoAdd
             Margins.Top = 5.000000000000000000
             Position.X = 30.000000000000000000
             Position.Y = 5.000000000000000000
-            Size.Width = 282.000000000000000000
+            Size.Width = 322.000000000000000000
             Size.Height = 24.000000000000000000
             Size.PlatformDefault = False
             TextSettings.Font.Family = 'Arial'
@@ -190,7 +196,7 @@ inherited FormProjetoAdd: TFormProjetoAdd
             Margins.Bottom = 30.000000000000000000
             Position.X = 40.000000000000000000
             Position.Y = 113.000000000000000000
-            Size.Width = 232.000000000000000000
+            Size.Width = 272.000000000000000000
             Size.Height = 50.000000000000000000
             Size.PlatformDefault = False
             XRadius = 25.000000000000000000
@@ -199,7 +205,7 @@ inherited FormProjetoAdd: TFormProjetoAdd
               Align = Client
               StyledSettings = [Style, FontColor]
               HitTest = True
-              Size.Width = 232.000000000000000000
+              Size.Width = 272.000000000000000000
               Size.Height = 50.000000000000000000
               Size.PlatformDefault = False
               TextSettings.Font.Family = 'Arial'
@@ -217,7 +223,7 @@ inherited FormProjetoAdd: TFormProjetoAdd
       CustomIcon = <
         item
         end>
-      IsSelected = True
+      IsSelected = False
       Size.Width = 8.000000000000000000
       Size.Height = 8.000000000000000000
       Size.PlatformDefault = False
@@ -228,18 +234,24 @@ inherited FormProjetoAdd: TFormProjetoAdd
       ExplicitSize.cy = 8.000000000000000000
       object Layout_centralEdit: TLayout
         Align = Client
-        Margins.Left = 30.000000000000000000
-        Margins.Top = 30.000000000000000000
-        Margins.Right = 30.000000000000000000
-        Margins.Bottom = 30.000000000000000000
-        Size.Width = 312.000000000000000000
-        Size.Height = 432.000000000000000000
+        Margins.Left = 5.000000000000000000
+        Margins.Top = 10.000000000000000000
+        Margins.Right = 5.000000000000000000
+        Margins.Bottom = 5.000000000000000000
+        Size.Width = 362.000000000000000000
+        Size.Height = 477.000000000000000000
         Size.PlatformDefault = False
         TabOrder = 0
         object Rectangle1: TRectangle
           Align = Top
           Fill.Color = xFF0098ED
-          Size.Width = 312.000000000000000000
+          Margins.Left = 5.000000000000000000
+          Margins.Top = 5.000000000000000000
+          Margins.Right = 5.000000000000000000
+          Margins.Bottom = 5.000000000000000000
+          Position.X = 5.000000000000000000
+          Position.Y = 5.000000000000000000
+          Size.Width = 352.000000000000000000
           Size.Height = 193.000000000000000000
           Size.PlatformDefault = False
           XRadius = 25.000000000000000000
@@ -252,7 +264,7 @@ inherited FormProjetoAdd: TFormProjetoAdd
             Margins.Right = 20.000000000000000000
             Position.X = 20.000000000000000000
             Position.Y = 39.000000000000000000
-            Size.Width = 272.000000000000000000
+            Size.Width = 312.000000000000000000
             Size.Height = 50.000000000000000000
             Size.PlatformDefault = False
             XRadius = 25.000000000000000000
@@ -266,7 +278,7 @@ inherited FormProjetoAdd: TFormProjetoAdd
               Margins.Top = 10.000000000000000000
               Margins.Right = 15.000000000000000000
               Margins.Bottom = 10.000000000000000000
-              Size.Width = 242.000000000000000000
+              Size.Width = 282.000000000000000000
               Size.Height = 30.000000000000000000
               Size.PlatformDefault = False
               TextPrompt = 'Nome do Projeto'
@@ -279,7 +291,7 @@ inherited FormProjetoAdd: TFormProjetoAdd
             Margins.Top = 5.000000000000000000
             Position.X = 30.000000000000000000
             Position.Y = 5.000000000000000000
-            Size.Width = 282.000000000000000000
+            Size.Width = 322.000000000000000000
             Size.Height = 24.000000000000000000
             Size.PlatformDefault = False
             TextSettings.Font.Family = 'Arial'
@@ -292,7 +304,7 @@ inherited FormProjetoAdd: TFormProjetoAdd
           object Layout1: TLayout
             Align = Top
             Position.Y = 89.000000000000000000
-            Size.Width = 312.000000000000000000
+            Size.Width = 352.000000000000000000
             Size.Height = 70.000000000000000000
             Size.PlatformDefault = False
             TabOrder = 2
@@ -331,7 +343,7 @@ inherited FormProjetoAdd: TFormProjetoAdd
               Margins.Top = 10.000000000000000000
               Margins.Right = 10.000000000000000000
               Margins.Bottom = 10.000000000000000000
-              Position.X = 157.000000000000000000
+              Position.X = 197.000000000000000000
               Position.Y = 10.000000000000000000
               Size.Width = 145.000000000000000000
               Size.Height = 50.000000000000000000

@@ -1,73 +1,73 @@
 inherited FormLogin_LgXhdpiPh: TFormLogin_LgXhdpiPh
-  ClientHeight = 696
-  ClientWidth = 448
+  ClientHeight = 695
+  ClientWidth = 450
   DesignerMasterStyle = 3
   inherited TabControlLogin: TTabControl
-    Size.Width = 448.000000000000000000
-    Size.Height = 696.000000000000000000
+    Size.Width = 450.000000000000000000
+    Size.Height = 676.000000000000000000
     Sizes = (
-      448s
-      696s
-      448s
-      696s)
+      450s
+      676s
+      450s
+      676s)
     inherited TabLogin: TTabItem
       ExplicitSize.cx = 64.000000000000000000
       ExplicitSize.cy = 49.000000000000000000
       inherited Layout_superior: TLayout
-        Size.Width = 448.000000000000000000
+        Size.Width = 450.000000000000000000
         inherited CirculoSuperior: TRoundRect
-          Size.Width = 448.000000000000000000
+          Size.Width = 450.000000000000000000
           inherited Layout_superiorCentral: TLayout
-            Size.Width = 448.000000000000000000
+            Size.Width = 450.000000000000000000
             inherited Label1: TLabel
-              Size.Width = 448.000000000000000000
+              Size.Width = 450.000000000000000000
               TextSettings.Font.StyleExt = {00070000000000000004000000}
             end
             inherited Label2: TLabel
-              Size.Width = 448.000000000000000000
+              Size.Width = 450.000000000000000000
               TextSettings.Font.StyleExt = {00070000000000000004000000}
             end
             inherited RoundRect10: TRoundRect
               Margins.Top = 10.000000000000000000
-              Size.Width = 348.000000000000000000
+              Size.Width = 350.000000000000000000
               inherited Label_criarConta: TLabel
-                Size.Width = 348.000000000000000000
+                Size.Width = 350.000000000000000000
               end
             end
           end
         end
       end
       inherited Layout_Central: TLayout
-        Size.Width = 388.000000000000000000
-        Size.Height = 536.000000000000000000
+        Size.Width = 440.000000000000000000
+        Size.Height = 561.000000000000000000
         inherited Label3: TLabel
-          Size.Width = 388.000000000000000000
+          Size.Width = 440.000000000000000000
         end
         inherited RoundRect1: TRoundRect
-          Size.Width = 368.000000000000000000
+          Size.Width = 420.000000000000000000
           inherited Edit_email: TEdit
-            Size.Width = 328.000000000000000000
+            Size.Width = 380.000000000000000000
           end
         end
         inherited Label4: TLabel
-          Size.Width = 388.000000000000000000
+          Size.Width = 440.000000000000000000
           TextSettings.Font.StyleExt = {00070000000000000004000000}
         end
         inherited RoundRect2: TRoundRect
-          Size.Width = 368.000000000000000000
+          Size.Width = 420.000000000000000000
           inherited Edit_senha: TEdit
-            Size.Width = 328.000000000000000000
+            Size.Width = 380.000000000000000000
           end
         end
         inherited RoundRect3: TRoundRect
-          Position.Y = 466.000000000000000000
-          Size.Width = 388.000000000000000000
+          Position.Y = 491.000000000000000000
+          Size.Width = 440.000000000000000000
           inherited Label_acessar: TLabel
-            Size.Width = 388.000000000000000000
+            Size.Width = 440.000000000000000000
           end
         end
         inherited CheckBox1: TCheckBox
-          Size.Width = 348.000000000000000000
+          Size.Width = 400.000000000000000000
         end
       end
     end
@@ -75,64 +75,68 @@ inherited FormLogin_LgXhdpiPh: TFormLogin_LgXhdpiPh
       ExplicitSize.cx = 64.000000000000000000
       ExplicitSize.cy = 49.000000000000000000
       inherited Layout1: TLayout
-        Size.Width = 388.000000000000000000
-        Size.Height = 536.000000000000000000
+        Size.Width = 440.000000000000000000
+        Size.Height = 561.000000000000000000
         inherited Label6: TLabel
-          Size.Width = 388.000000000000000000
+          Size.Width = 440.000000000000000000
         end
         inherited RoundRect4: TRoundRect
-          Size.Width = 368.000000000000000000
+          Size.Width = 420.000000000000000000
           inherited Edit_emailCad: TEdit
-            Size.Width = 328.000000000000000000
+            Size.Width = 380.000000000000000000
           end
         end
         inherited Label7: TLabel
-          Size.Width = 388.000000000000000000
+          Size.Width = 440.000000000000000000
           TextSettings.Font.StyleExt = {00070000000000000004000000}
         end
         inherited RoundRect5: TRoundRect
-          Size.Width = 368.000000000000000000
+          Size.Width = 420.000000000000000000
           inherited Edit_senhaCad: TEdit
-            Size.Width = 328.000000000000000000
+            Size.Width = 380.000000000000000000
           end
         end
         inherited RoundRect6: TRoundRect
-          Position.Y = 466.000000000000000000
-          Size.Width = 388.000000000000000000
+          Position.Y = 491.000000000000000000
+          Size.Width = 440.000000000000000000
           inherited Label_CriaContaCad: TLabel
-            Size.Width = 388.000000000000000000
+            Size.Width = 440.000000000000000000
           end
         end
         inherited RoundRect9: TRoundRect
-          Size.Width = 368.000000000000000000
+          Size.Width = 420.000000000000000000
           inherited Edit_nomeCad: TEdit
-            Size.Width = 328.000000000000000000
+            Size.Width = 380.000000000000000000
           end
         end
       end
       inherited Layout2: TLayout
-        Size.Width = 448.000000000000000000
+        Size.Width = 450.000000000000000000
         inherited RoundRect7: TRoundRect
-          Size.Width = 448.000000000000000000
+          Size.Width = 450.000000000000000000
           inherited Layout3: TLayout
-            Size.Width = 448.000000000000000000
+            Size.Width = 450.000000000000000000
             inherited Label9: TLabel
-              Size.Width = 448.000000000000000000
+              Size.Width = 450.000000000000000000
               TextSettings.Font.StyleExt = {00070000000000000004000000}
             end
             inherited Label10: TLabel
-              Size.Width = 448.000000000000000000
+              Size.Width = 450.000000000000000000
               TextSettings.Font.StyleExt = {00070000000000000004000000}
             end
             inherited RoundRect11: TRoundRect
-              Size.Width = 348.000000000000000000
+              Size.Width = 350.000000000000000000
               inherited Label_acessarConta: TLabel
-                Size.Width = 348.000000000000000000
+                Size.Width = 350.000000000000000000
               end
             end
           end
         end
       end
     end
+  end
+  inherited Label_versao: TLabel
+    Position.Y = 676.000000000000000000
+    Size.Width = 450.000000000000000000
   end
 end
