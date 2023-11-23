@@ -18,6 +18,7 @@ type
     procedure DataModuleCreate(Sender: TObject);
   private
 
+
     { Private declarations }
   public
     { Public declarations }
@@ -27,14 +28,17 @@ type
     procedure InserirUsuario(usuario, senha, nome: string; ativo, nivel: integer);
     function RetornaNomePeloEmail(email: string):string;
     function RetornaAdmPeloEmail(email: string): Boolean;
+    function RetornaIdPeloEmail(email: string): integer;
     function VerificaUsuarioAtivo(email: string): Boolean;
     procedure ModificaUsuario(usuario, senha, nome: string; ativo,nivel, id: integer);
     function verificaProjeto(nome: string): Boolean;
     function InsereProjeto (nome: string): boolean;
-    function InsereCausa(nome,objetivo,ondeEncontrar,comoAjudar: string; idProjeto: integer):Boolean;
+    function InsereCausa(nome,objetivo,ondeEncontrar,comoAjudar: string; idProjeto,idUsuario: integer):Boolean;
     function AlteraCausa(nome,objetivo,ondeEncontrar,comoAjudar: string; id,idProjeto: integer):Boolean;
     function RetornaNomeProjetoId(id: integer): string;
     function ExcluiCausaId(id: integer): Boolean;
+    function ExcluiContaId(id: integer): Boolean;
+    function RetornaAdmId(id: integer): Integer;
   end;
 
 var
@@ -316,7 +320,7 @@ end;
 
 
 function TDM_Conexao.InsereCausa(nome, objetivo, ondeEncontrar,
-  comoAjudar: string; idProjeto: integer): Boolean;
+  comoAjudar: string; idProjeto,idUsuario: integer): Boolean;
 var
   Erro: Boolean;
 begin
@@ -326,13 +330,12 @@ begin
   FD_Query.Close;
   FD_Query.SQL.Clear;
 
-
   try
     try
       FD_Query.SQL.Add('insert into causas (nome,idProjeto,OndeEncontrar,ComoAjudar, ' +
-      'Objetivo) Values (:nome,:idProjeto,:ondeEncontrar,:comoAjudar,:objetivo) ');
-
+      'Objetivo,idUsuario) Values (:nome,:idProjeto,:ondeEncontrar,:comoAjudar,:objetivo,:idUsuario) ');
       FD_Query.ParamByName('nome').AsString := nome;
+      FD_Query.ParamByName('idUsuario').AsInteger := idUsuario;
       FD_Query.ParamByName('idProjeto').AsInteger := idProjeto;
       FD_Query.ParamByName('OndeEncontrar').AsString := ondeEncontrar;
       FD_Query.ParamByName('ComoAjudar').AsString := comoAjudar;
@@ -452,6 +455,52 @@ begin
 
 end;
 
+function TDM_Conexao.RetornaIdPeloEmail(email: string): integer;
+begin
+//Inicia Conexão
+  DM_Conexao.FD_Conexao.Close;
+  DM_Conexao.FD_Conexao.Open();
+
+  DM_Conexao.FD_Query.Close;
+  DM_Conexao.FD_Query.SQL.Clear;
+  DM_Conexao.FD_Query.SQL.Add('select id from usuario where email = :email');
+  DM_Conexao.FD_Query.ParamByName('email').AsString := email;
+  DM_Conexao.FD_Query.Open();
+  Result := DM_Conexao.FD_Query.FieldByName('id').AsInteger;
+end;
+
+
+function TDM_Conexao.ExcluiContaId(id: integer): Boolean;
+var
+  Erro: boolean;
+begin
+    //Inicia Conexão
+  DM_Conexao.FD_Conexao.Close;
+  DM_Conexao.FD_Conexao.Open();
+  DM_Conexao.FD_Query.Close;
+  DM_Conexao.FD_Query.SQL.Clear;
+
+  try
+    try
+      DM_Conexao.FD_Query.SQL.Add('delete from usuario where id = :id');
+      DM_Conexao.FD_Query.ParamByName('id').AsInteger := id;
+      DM_Conexao.FD_Query.ExecSQL;
+      Erro := False;
+    except
+      Erro := True;
+    end;
+  finally
+    if Erro = True then
+    begin
+      Result := False; //Se retornar False é que deu algum erro
+    end
+    else
+    begin
+      Result := True; //Se retornar True é porque está tudo certo
+    end;
+  end;
+end;
+
 function TDM_Conexao.RetornaNomePeloEmail(email: string): string;
 begin
 //Inicia Conexão
@@ -480,5 +529,23 @@ begin
 
   Result := DM_Conexao.FD_Query.FieldByName('nome').AsString;
 end;
+
+function TDM_Conexao.RetornaAdmId(id: integer): Integer;
+var
+  adm: integer;
+begin
+  //Inicia Conexão
+  DM_Conexao.FD_Conexao.Close;
+  DM_Conexao.FD_Conexao.Open();
+  DM_Conexao.FD_Query.Close;
+  DM_Conexao.FD_Query.SQL.Clear;
+  DM_Conexao.FD_Query.SQL.Add('select nivel from usuario where id = :id ');
+  DM_Conexao.FD_Query.ParamByName('id').AsInteger := id;
+  DM_Conexao.FD_Query.Open();
+  adm := DM_Conexao.FD_Query.FieldByName('nivel').AsInteger;
+  // 1 ADM , 0 Usuário
+  Result := adm;
+end;
+
 
 end.

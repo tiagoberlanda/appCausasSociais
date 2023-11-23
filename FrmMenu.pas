@@ -37,8 +37,8 @@ type
     procedure Label_modoAdmClick(Sender: TObject);
     procedure Label_minhaContaClick(Sender: TObject);
     procedure Label_minhasCausasClick(Sender: TObject);
-    procedure Label_publicarCausaClick(Sender: TObject);
     procedure FormShow(Sender: TObject);
+    procedure Label_publicarCausaClick(Sender: TObject);
   private
     { Private declarations }
   public
@@ -52,7 +52,8 @@ implementation
 
 {$R *.fmx}
 
-uses FrmPrincipal, DMConexao, FrmAdministracao;
+uses FrmPrincipal, DMConexao, FrmAdministracao, FrmConta, FrmCausas,
+  FrmCausasAdd;
 
 procedure TFormMenu.FormShow(Sender: TObject);
 begin
@@ -100,13 +101,31 @@ end;
 procedure TFormMenu.Label_minhaContaClick(Sender: TObject);
 begin
   inherited;
-  ShowMessage( 'Funcionalidade em Desenvolvimento');
+  //Abre FormConta
+  FormConta := TformConta.Create(self);
+  application.MainForm := FormConta;
+  //Coloca E-mail (usuario) na TagString da Label Nome Usuário
+  FormConta.Label_nome.TagString := Label_nome.TagString;
+  FormConta.Label_nome.Tag := DM_Conexao.RetornaIdPeloEmail(Label_nome.TagString); //Passa o ID do usuário no Banco
+
+  FormConta.preencheInformacoesConta(FormConta.Label_nome.tag);
+
+  FormConta.Show;
+  FormMenu.Close;
 end;
 
 procedure TFormMenu.Label_minhasCausasClick(Sender: TObject);
 begin
   inherited;
-  ShowMessage( 'Funcionalidade em Desenvolvimento');
+  FormCausas := TFormCausas.Create(self);
+  Application.MainForm := FormCausas;
+
+  FormCausas.Label_nome.TagString := label_nome.TagString;
+  FormCausas.Label_info.TagString := 'M';
+  FormCausas.Label_nome.Tag := DM_Conexao.RetornaIdPeloEmail(label_nome.TagString);
+  FormCausas.show;
+  FormMenu.Close;
+
 end;
 
 procedure TFormMenu.Label_modoAdmClick(Sender: TObject);
@@ -117,6 +136,7 @@ begin
       //Vai para Form Administracao
       FormAdministracao := TFormAdministracao.Create(self);
       Application.MainForm := FormAdministracao;
+      //Coloca E-mail (usuario) na TagString da Label Nome Usuário
       FormAdministracao.Label_nome.tagString := Label_nome.TagString;
       FormAdministracao.show;
       FormMenu.Close;
@@ -130,10 +150,18 @@ begin
 
 end;
 
+
 procedure TFormMenu.Label_publicarCausaClick(Sender: TObject);
 begin
   inherited;
-  ShowMessage( 'Funcionalidade em Desenvolvimento');
+  FormCausasAdd := TFormCausasAdd.Create(self);
+  application.MainForm := FormCausasAdd;
+
+  FormCausasAdd.Label_nome.TagString := Label_nome.TagString;
+  FormCausasAdd.Label_nome.Tag := DM_Conexao.RetornaIdPeloEmail(label_nome.TagString);
+
+  FormCausasAdd.Show;
+  FormMenu.close;
 end;
 
 procedure TFormMenu.Label_sairClick(Sender: TObject);

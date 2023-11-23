@@ -1,9 +1,6 @@
-inherited FormCausasAdd: TFormCausasAdd
-  Caption = 'FormCausasAdd'
-  ClientHeight = 686
-  OnCreate = FormCreate
-  OnShow = FormShow
-  DesignerMasterStyle = 3
+inherited FormConta: TFormConta
+  Caption = 'FormConta'
+  DesignerMasterStyle = 0
   inherited Layout_superior: TLayout
     inherited Layout_centralSup: TLayout
       object Label_nome: TLabel
@@ -16,7 +13,7 @@ inherited FormCausasAdd: TFormCausasAdd
         TextSettings.Font.StyleExt = {00070000000000000004000000}
         TextSettings.FontColor = claWhite
         TextSettings.HorzAlign = Center
-        Text = 'Causas'
+        Text = 'Minha Conta'
         TabOrder = 1
       end
       object Label_info: TLabel
@@ -28,7 +25,7 @@ inherited FormCausasAdd: TFormCausasAdd
         TextSettings.Font.Size = 14.000000000000000000
         TextSettings.FontColor = claWhite
         TextSettings.HorzAlign = Center
-        Text = 'Pesquise e altere Causas'
+        Text = 'Altere informa'#231#245'es do seu cadastro'
         ParentShowHint = False
         ShowHint = False
         TabOrder = 2
@@ -101,14 +98,14 @@ inherited FormCausasAdd: TFormCausasAdd
     Margins.Right = 5.000000000000000000
     Margins.Bottom = 5.000000000000000000
     Size.Width = 362.000000000000000000
-    Size.Height = 571.000000000000000000
+    Size.Height = 477.000000000000000000
     Size.PlatformDefault = False
-    TabOrder = 2
+    TabOrder = 1
     object Rectangle_central: TRectangle
       Align = Client
       Fill.Color = xFF0098ED
       Size.Width = 362.000000000000000000
-      Size.Height = 571.000000000000000000
+      Size.Height = 477.000000000000000000
       Size.PlatformDefault = False
       XRadius = 20.000000000000000000
       YRadius = 20.000000000000000000
@@ -123,7 +120,7 @@ inherited FormCausasAdd: TFormCausasAdd
         Size.Width = 352.000000000000000000
         Size.Height = 50.000000000000000000
         Size.PlatformDefault = False
-        object Edit_nomeProjeto: TEdit
+        object Edit_nome: TEdit
           Touch.InteractiveGestures = [LongTap, DoubleTap]
           Align = Client
           StyleLookup = 'transparentedit'
@@ -133,12 +130,12 @@ inherited FormCausasAdd: TFormCausasAdd
           Margins.Right = 15.000000000000000000
           Margins.Bottom = 5.000000000000000000
           Size.Width = 322.000000000000000000
-          Size.Height = 32.000000000000000000
+          Size.Height = 40.000000000000000000
           Size.PlatformDefault = False
-          TextPrompt = 'Digite o nome da causa'
+          TextPrompt = 'Digite seu nome'
         end
       end
-      object Label_nomeCausa: TLabel
+      object Label_nomeUsuario: TLabel
         Align = Top
         StyledSettings = [Style]
         Margins.Left = 15.000000000000000000
@@ -152,7 +149,7 @@ inherited FormCausasAdd: TFormCausasAdd
         TextSettings.Font.Family = 'Arial'
         TextSettings.Font.Size = 16.000000000000000000
         TextSettings.FontColor = claWhite
-        Text = 'Nome da Causa'
+        Text = 'Nome'
         TabOrder = 5
       end
       object RoundRect1: TRoundRect
@@ -167,20 +164,22 @@ inherited FormCausasAdd: TFormCausasAdd
         Size.Width = 352.000000000000000000
         Size.Height = 50.000000000000000000
         Size.PlatformDefault = False
-        object ComboBoxProjeto: TComboBox
+        object Edit_email: TEdit
+          Touch.InteractiveGestures = [LongTap, DoubleTap]
           Align = Client
-          ItemIndex = 0
+          StyleLookup = 'transparentedit'
+          TabOrder = 0
           Margins.Left = 15.000000000000000000
           Margins.Top = 5.000000000000000000
           Margins.Right = 15.000000000000000000
           Margins.Bottom = 5.000000000000000000
           Size.Width = 322.000000000000000000
-          Size.Height = 32.000000000000000000
+          Size.Height = 40.000000000000000000
           Size.PlatformDefault = False
-          TabOrder = 0
+          TextPrompt = 'Digite seu e-mail'
         end
       end
-      object Label_projeto: TLabel
+      object Label_email: TLabel
         Align = Top
         StyledSettings = [Style]
         Margins.Left = 15.000000000000000000
@@ -194,60 +193,12 @@ inherited FormCausasAdd: TFormCausasAdd
         TextSettings.Font.Family = 'Arial'
         TextSettings.Font.Size = 16.000000000000000000
         TextSettings.FontColor = claWhite
-        Text = 'Projeto'
+        Text = 'E-mail'
         TabOrder = 4
-      end
-      object Rectangle2: TRectangle
-        Align = Top
-        Fill.Color = claWhite
-        Margins.Left = 5.000000000000000000
-        Margins.Top = 3.000000000000000000
-        Margins.Right = 5.000000000000000000
-        Margins.Bottom = 5.000000000000000000
-        Position.X = 5.000000000000000000
-        Position.Y = 165.000000000000000000
-        Size.Width = 352.000000000000000000
-        Size.Height = 94.000000000000000000
-        Size.PlatformDefault = False
-        XRadius = 20.000000000000000000
-        YRadius = 20.000000000000000000
-        object Memo_objetivo: TMemo
-          Touch.InteractiveGestures = [Pan, LongTap, DoubleTap]
-          DataDetectorTypes = []
-          TextSettings.WordWrap = True
-          Align = Client
-          Margins.Left = 15.000000000000000000
-          Margins.Top = 2.000000000000000000
-          Margins.Right = 15.000000000000000000
-          Margins.Bottom = 2.000000000000000000
-          Size.Width = 322.000000000000000000
-          Size.Height = 90.000000000000000000
-          Size.PlatformDefault = False
-          TabOrder = 0
-          Viewport.Width = 314.000000000000000000
-          Viewport.Height = 82.000000000000000000
-        end
-      end
-      object Label1: TLabel
-        Align = Top
-        StyledSettings = [Style]
-        Margins.Left = 15.000000000000000000
-        Margins.Top = 2.000000000000000000
-        Margins.Right = 15.000000000000000000
-        Position.X = 15.000000000000000000
-        Position.Y = 147.000000000000000000
-        Size.Width = 332.000000000000000000
-        Size.Height = 15.000000000000000000
-        Size.PlatformDefault = False
-        TextSettings.Font.Family = 'Arial'
-        TextSettings.Font.Size = 16.000000000000000000
-        TextSettings.FontColor = claWhite
-        Text = 'Objetivo'
-        TabOrder = 3
       end
       object Layout_inferior: TLayout
         Align = Bottom
-        Position.Y = 501.000000000000000000
+        Position.Y = 407.000000000000000000
         Size.Width = 362.000000000000000000
         Size.Height = 70.000000000000000000
         Size.PlatformDefault = False
@@ -268,6 +219,7 @@ inherited FormCausasAdd: TFormCausasAdd
           object Label_salvar: TLabel
             Align = Client
             StyledSettings = [Style]
+            HitTest = True
             Size.Width = 120.000000000000000000
             Size.Height = 60.000000000000000000
             Size.PlatformDefault = False
@@ -293,7 +245,6 @@ inherited FormCausasAdd: TFormCausasAdd
           Size.PlatformDefault = False
           XRadius = 20.000000000000000000
           YRadius = 20.000000000000000000
-          OnClick = Label_cancelaExcluiClick
           object Label_cancelaExclui: TLabel
             Align = Client
             StyledSettings = [Style]
@@ -304,7 +255,7 @@ inherited FormCausasAdd: TFormCausasAdd
             TextSettings.Font.Family = 'Arial'
             TextSettings.Font.Size = 16.000000000000000000
             TextSettings.HorzAlign = Center
-            Text = 'Cancelar'
+            Text = 'Excluir Conta'
             TabOrder = 0
             OnClick = Label_cancelaExcluiClick
           end
@@ -317,23 +268,25 @@ inherited FormCausasAdd: TFormCausasAdd
         Margins.Top = 3.000000000000000000
         Margins.Right = 5.000000000000000000
         Position.X = 5.000000000000000000
-        Position.Y = 284.000000000000000000
+        Position.Y = 165.000000000000000000
         Size.Width = 352.000000000000000000
         Size.Height = 50.000000000000000000
         Size.PlatformDefault = False
-        object Edit_ondeEncontrar: TEdit
+        object Edit_senhAtual: TEdit
           Touch.InteractiveGestures = [LongTap, DoubleTap]
           Align = Client
           StyleLookup = 'transparentedit'
           TabOrder = 0
+          Password = True
+          Enabled = False
           Margins.Left = 15.000000000000000000
           Margins.Top = 5.000000000000000000
           Margins.Right = 15.000000000000000000
           Margins.Bottom = 5.000000000000000000
           Size.Width = 322.000000000000000000
-          Size.Height = 32.000000000000000000
+          Size.Height = 40.000000000000000000
           Size.PlatformDefault = False
-          TextPrompt = 'Digite onde podemos econtrar'
+          TextPrompt = 'Digite sua senha atual'
         end
       end
       object Label2: TLabel
@@ -343,14 +296,14 @@ inherited FormCausasAdd: TFormCausasAdd
         Margins.Top = 2.000000000000000000
         Margins.Right = 15.000000000000000000
         Position.X = 15.000000000000000000
-        Position.Y = 266.000000000000000000
+        Position.Y = 147.000000000000000000
         Size.Width = 332.000000000000000000
         Size.Height = 15.000000000000000000
         Size.PlatformDefault = False
         TextSettings.Font.Family = 'Arial'
         TextSettings.Font.Size = 16.000000000000000000
         TextSettings.FontColor = claWhite
-        Text = 'Onde Encontrar?'
+        Text = 'Senha Atual'
         TabOrder = 2
       end
       object RoundRect3: TRoundRect
@@ -361,23 +314,24 @@ inherited FormCausasAdd: TFormCausasAdd
         Margins.Right = 5.000000000000000000
         Margins.Bottom = 5.000000000000000000
         Position.X = 5.000000000000000000
-        Position.Y = 354.000000000000000000
+        Position.Y = 235.000000000000000000
         Size.Width = 352.000000000000000000
         Size.Height = 50.000000000000000000
         Size.PlatformDefault = False
-        object Edit_comoAjudar: TEdit
+        object Edit_novaSenha: TEdit
           Touch.InteractiveGestures = [LongTap, DoubleTap]
           Align = Client
           StyleLookup = 'transparentedit'
           TabOrder = 0
+          Password = True
           Margins.Left = 15.000000000000000000
           Margins.Top = 5.000000000000000000
           Margins.Right = 15.000000000000000000
           Margins.Bottom = 5.000000000000000000
           Size.Width = 322.000000000000000000
-          Size.Height = 32.000000000000000000
+          Size.Height = 40.000000000000000000
           Size.PlatformDefault = False
-          TextPrompt = 'Digite Como podemos ajudar'
+          TextPrompt = 'Digite sua nova senha'
         end
       end
       object Label3: TLabel
@@ -387,15 +341,28 @@ inherited FormCausasAdd: TFormCausasAdd
         Margins.Top = 2.000000000000000000
         Margins.Right = 15.000000000000000000
         Position.X = 15.000000000000000000
-        Position.Y = 336.000000000000000000
+        Position.Y = 217.000000000000000000
         Size.Width = 332.000000000000000000
         Size.Height = 15.000000000000000000
         Size.PlatformDefault = False
         TextSettings.Font.Family = 'Arial'
         TextSettings.Font.Size = 16.000000000000000000
         TextSettings.FontColor = claWhite
-        Text = 'Como Ajudar?'
+        Text = 'Nova Senha'
         TabOrder = 1
+      end
+      object CheckBox1: TCheckBox
+        Align = Top
+        Margins.Left = 30.000000000000000000
+        Margins.Right = 10.000000000000000000
+        Position.X = 30.000000000000000000
+        Position.Y = 290.000000000000000000
+        Size.Width = 322.000000000000000000
+        Size.Height = 19.000000000000000000
+        Size.PlatformDefault = False
+        TabOrder = 3
+        Text = 'Exibir Senha'
+        OnChange = CheckBox1Change
       end
     end
   end

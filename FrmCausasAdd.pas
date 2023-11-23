@@ -66,7 +66,7 @@ procedure TFormCausasAdd.FormShow(Sender: TObject);
 begin
   inherited;
   //Verifica se é novo registro e altera nome botão Cancelar/Excluir
-  if label_nome.Tag = 0 then  //Novo Registro
+  if label_info.Tag = 0 then  //Novo Registro
   begin
     Label_cancelaExclui.Text := 'Cancelar';
     Label_salvar.Text := 'Salvar';
@@ -86,6 +86,7 @@ begin
   application.MainForm := FormCausas;
 
   FormCausas.Label_nome.TagString := Label_nome.TagString;
+  FormCausas.Label_nome.Tag := label_nome.Tag;
 
   FormCausas.Show;
   FormCausasadd.close;
@@ -106,14 +107,14 @@ begin
   else
   begin
     //Verifica se é um novo registro
-    if Label_nome.Tag = 0 then
+    if Label_info.Tag = 0 then
     begin
 
       //Chama função para inserir a causa
       idProjeto := Integer(ComboBoxProjeto.Items.Objects[ComboBoxProjeto.ItemIndex]);
 
       if DM_Conexao.InsereCausa(Edit_nomeProjeto.Text,Memo_objetivo.Lines.GetText(),
-      Edit_ondeEncontrar.Text,Edit_comoAjudar.Text,idProjeto) = True then
+      Edit_ondeEncontrar.Text,Edit_comoAjudar.Text,idProjeto,Label_nome.tag) = True then
       begin
         ShowMessage('Causa Inserida com Sucesso!');
 
@@ -123,6 +124,7 @@ begin
         application.MainForm := FormCausas;
 
         FormCausas.Label_nome.TagString := Label_nome.TagString;
+        FormCausas.Label_nome.Tag := label_nome.Tag;
 
         FormCausas.Show;
         FormCausasadd.close;
@@ -137,6 +139,7 @@ begin
         application.MainForm := FormCausas;
 
         FormCausas.Label_nome.TagString := Label_nome.TagString;
+        FormCausas.Label_nome.Tag := label_nome.tag;
 
         FormCausas.Show;
         FormCausasadd.close;
@@ -163,6 +166,7 @@ begin
       application.MainForm := FormCausas;
 
       FormCausas.Label_nome.TagString := Label_nome.TagString;
+      FormCausas.Label_nome.Tag := label_nome.Tag;
 
       FormCausas.Show;
       FormCausasadd.close;
@@ -179,13 +183,14 @@ begin
   inherited;
 
   //Verifica se é um novo registro
-  if Label_nome.Tag = 0 then
+  if Label_info.Tag = 0 then
   begin
     //Se Sim só cancela e volta.
     FormCausas := TformCausas.Create(self);
     application.MainForm := FormCausas;
 
     FormCausas.Label_nome.TagString := Label_nome.TagString;
+    FormCausas.Label_nome.Tag := label_nome.Tag;
 
     FormCausas.Show;
     FormCausasadd.Close;
@@ -218,6 +223,7 @@ begin
           application.MainForm := FormCausas;
 
           FormCausas.Label_nome.TagString := Label_nome.TagString;
+          FormCausas.Label_nome.Tag := label_nome.Tag;
 
           FormCausas.Show;
           FormCausasadd.Close;

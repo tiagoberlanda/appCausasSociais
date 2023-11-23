@@ -5,7 +5,7 @@
         <FrameworkType>FMX</FrameworkType>
         <Base>True</Base>
         <Config Condition="'$(Config)'==''">Debug</Config>
-        <Platform Condition="'$(Platform)'==''">Android</Platform>
+        <Platform Condition="'$(Platform)'==''">Win32</Platform>
         <TargetedPlatforms>32787</TargetedPlatforms>
         <AppType>Application</AppType>
         <MainSource>ProjetoSocial.dpr</MainSource>
@@ -253,6 +253,10 @@
         </DCCReference>
         <DCCReference Include="FrmCausasAdd.pas">
             <Form>FormCausasAdd</Form>
+            <FormType>fmx</FormType>
+        </DCCReference>
+        <DCCReference Include="FrmConta.pas">
+            <Form>FormConta</Form>
             <FormType>fmx</FormType>
         </DCCReference>
         <BuildConfiguration Include="Base">

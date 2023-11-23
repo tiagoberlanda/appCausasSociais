@@ -1,6 +1,6 @@
 inherited FormCausas: TFormCausas
   Caption = 'FormCausas'
-  OnCreate = FormCreate
+  OnShow = FormShow
   DesignerMasterStyle = 0
   inherited Layout_superior: TLayout
     inherited Layout_centralSup: TLayout

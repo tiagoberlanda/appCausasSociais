@@ -78,6 +78,8 @@ begin
   Application.MainForm := FormCausas;
 
   FormCausas.Label_nome.TagString := Label_nome.TagString;
+  FormCausas.Label_info.TagString := 'A'; //informa que veio do FormAdminsitracao
+
 
   FormCausas.Show;
   FormAdministracao.Close;

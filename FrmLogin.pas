@@ -131,7 +131,7 @@ begin
     end
     else
     begin
-      ShowMessage('Impossível logar com Usuário Inativo! Solicite ao Administrador para ativar o usuário ' + Edit_email.text)
+      ShowMessage('Usuário ou senha Inválidos!')
     end;
 
   end;
@@ -151,7 +151,7 @@ begin
     //Valida se o usuário já existe ou não.
     if DM_Conexao.ValidarCadastro(Edit_emailCad.Text) then  //Se retornar True é porque o usuário existe
     begin
-      ShowMessage('Usuário já existente, use outro e tente novamene.');
+      ShowMessage('E-mail já cadastrado, use outro e tente novamente');
       Edit_emailCad.Text := '';    // Se o usuário já existir irá apagar o que foi digitado nos Edits
       Edit_senhaCad.Text := '';
       Edit_nomeCad.Text := '';

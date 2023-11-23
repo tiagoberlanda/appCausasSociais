@@ -22,11 +22,12 @@ type
     procedure Image_adicionarClick(Sender: TObject);
     procedure ListView_causasItemClickEx(const Sender: TObject; ItemIndex: Integer;
       const LocalClickPos: TPointF; const ItemObject: TListItemDrawable);
-    procedure FormCreate(Sender: TObject);
+    procedure FormShow(Sender: TObject);
   private
     { Private declarations }
 
     procedure AddlistViewCausas();
+    procedure AddListViewCausasUser(id: integer);
   public
     { Public declarations }
   end;
@@ -38,7 +39,7 @@ implementation
 
 {$R *.fmx}
 
-uses FrmAdministracao, FrmCausasAdd, DMConexao;
+uses FrmAdministracao, FrmCausasAdd, DMConexao, FrmMenu;
 
 procedure TFormCausas.AddlistViewCausas;
 begin
@@ -88,10 +89,69 @@ begin
 
 end;
 
-procedure TFormCausas.FormCreate(Sender: TObject);
+procedure TFormCausas.AddListViewCausasUser(id: integer);
+begin
+  ListView_causas.Items.clear; // limpa informações
+
+  // Inicia Conexão no Banco
+  if DM_Conexao.FD_Conexao.Connected = False then
+  begin
+    DM_Conexao.FD_Conexao.Connected := True;
+  end;
+
+  //consulta
+  DM_Conexao.FD_Query.Close;
+  DM_Conexao.FD_Query.SQL.Clear;
+  DM_Conexao.FD_Query.SQL.Add('select id, nome from causas where idUsuario = :idUsuario');
+  DM_Conexao.FD_Query.ParamByName('idUsuario').AsInteger := id;
+  DM_Conexao.FD_Query.Open();
+
+  //Inserindo no List View
+  while not DM_Conexao.FD_Query.Eof do
+  begin
+    with ListView_causas.Items.Add do
+    begin
+      TagString := DM_Conexao.FD_Query.FieldByName('id').AsString;
+
+
+      // Adiciona o ID e Nome
+
+      TListItemText(Objects.FindDrawable('id')).Text := DM_Conexao.FD_Query.FieldByName('id').AsString;
+      TListItemText(Objects.FindDrawable('nome')).Text := DM_Conexao.FD_Query.FieldByName('nome').AsString;
+
+      // Adiciona Imagens
+      TListItemImage(Objects.FindDrawable('editar')).Bitmap := Image_editar.Bitmap;
+    end;
+    DM_Conexao.FD_Query.Next;
+
+  end;
+
+  if ListView_causas.Items.Count = 0 then
+  // Se não tiver nenhum item no ListView
+  begin
+    with ListView_causas.Items.Add do
+    begin
+      TListItemText(Objects.FindDrawable('nome')).Text :=
+        'Sem Causas cadastradas...';
+    end;
+  end;
+
+end;
+
+procedure TFormCausas.FormShow(Sender: TObject);
 begin
   inherited;
-  AddlistViewCausas();
+  //Se veio do formAdministracao aparecer todas as causas
+  if Label_info.TagString = 'A' then
+  begin
+    AddlistViewCausas();
+  end
+  else //Se veio do Minhas causas aparece somente as do usuario
+  begin
+    AddListViewCausasUser(Label_nome.tag);
+  end;
+
+
 end;
 
 procedure TFormCausas.Image_adicionarClick(Sender: TObject);
@@ -102,9 +162,10 @@ begin
   application.MainForm := FormCausasAdd;
 
   FormCausasAdd.Label_nome.TagString := Label_nome.TagString;
+  FormCausasAdd.Label_nome.Tag := DM_Conexao.RetornaIdPeloEmail(Label_nome.TagString);
 
   //Informa que é um novo registro
-  FormCausasAdd.Label_nome.Tag := 0;
+  FormCausasAdd.Label_info.Tag := 0;
 
   FormCausasAdd.Show;
   FormCausas.Close;
@@ -114,13 +175,28 @@ end;
 procedure TFormCausas.Image_voltarClick(Sender: TObject);
 begin
   inherited;
-  FormAdministracao := TFormAdministracao.Create(self);
-  application.MainForm := FormAdministracao;
 
-  FormAdministracao.Label_nome.TagString := Label_nome.TagString;
+  if Label_info.TagString = 'A' then
+  begin
+    FormAdministracao := TFormAdministracao.Create(self);
+    application.MainForm := FormAdministracao;
 
-  FormAdministracao.Show;
-  FormCausas.Close;
+    FormAdministracao.Label_nome.TagString := Label_nome.TagString;
+
+    FormAdministracao.Show;
+    FormCausas.Close;
+  end
+  else
+  begin
+    FormMenu := TFormMenu.Create(self);
+    application.MainForm := FormMenu;
+
+    FormMenu.Label_nome.TagString := label_nome.TagString;
+
+    FormMenu.Show;
+    FormCausas.close;
+  end;
+
 end;
 
 procedure TFormCausas.ListView_causasItemClickEx(const Sender: TObject;
@@ -146,7 +222,9 @@ begin
 
       DM_Conexao.FD_Query.Close;
       DM_Conexao.FD_Query.SQL.Clear;
-      DM_Conexao.FD_Query.SQL.Add('select id,nome,idProjeto,OndeEncontrar,ComoAjudar,Objetivo from causas Where id = :id');
+      DM_Conexao.FD_Query.SQL.Add('select c.id,c.nome,c.idProjeto,p.nome as nomeProjeto,c.OndeEncontrar, '+
+      'c.ComoAjudar,c.Objetivo from causas c,projeto p Where p.id = c.idProjeto '+
+      'AND c.id = :id');
       DM_Conexao.FD_Query.ParamByName('id').AsInteger := ListView_causas.Items[ItemIndex].TagString.ToInteger();
       DM_Conexao.FD_Query.Open();
       //Passa os valores para as variaveis
@@ -155,15 +233,13 @@ begin
       idProjeto := DM_Conexao.FD_Query.FieldByName('idProjeto').AsInteger;
       como := DM_Conexao.FD_Query.FieldByName('ComoAjudar').AsString;
       objetivo := DM_Conexao.FD_Query.FieldByName('Objetivo').AsString;
-      nomeProjeto := DM_Conexao.RetornaNomeProjetoId(idProjeto);
+      //nomeProjeto := DM_Conexao.RetornaNomeProjetoId(idProjeto);
+      nomeProjeto := DM_Conexao.FD_Query.FieldByName('nomeProjeto').AsString;
 
       //Preenche informações no Form
 
       FormCausasAdd := TFormCausasAdd.Create(self);
       Application.MainForm := FormCausasAdd;
-
-      //Informa que será uma edição de registro
-      FormCausasAdd.label_nome.Tag := 1; //Edição de Registro
 
       FormCausasAdd.Edit_nomeProjeto.Tag := ListView_causas.Items[ItemIndex].TagString.ToInteger();  //passa id do registro
       FormCausasAdd.Edit_nomeProjeto.Text := nome;
@@ -175,6 +251,9 @@ begin
 
       //Passa e-mail usuário.
       FormCausasAdd.Label_nome.TagString := Label_nome.TagString;
+      //Informa que será uma edição de registro
+      FormCausasAdd.label_info.Tag := 1; //Edição de Registro
+      FormCausasAdd.Label_nome.Tag := DM_Conexao.RetornaIdPeloEmail(Label_nome.TagString);
 
       FormCausasAdd.Show;
       FormCausas.Close;
