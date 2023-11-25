@@ -2,8 +2,8 @@ object Form_base: TForm_base
   Left = 0
   Top = 0
   Caption = 'FormBase'
-  ClientHeight = 592
-  ClientWidth = 372
+  ClientHeight = 600
+  ClientWidth = 400
   Fill.Kind = Solid
   FormFactor.Width = 320
   FormFactor.Height = 480
@@ -12,7 +12,7 @@ object Form_base: TForm_base
   DesignerMasterStyle = 0
   object Layout_superior: TLayout
     Align = Top
-    Size.Width = 372.000000000000000000
+    Size.Width = 400.000000000000000000
     Size.Height = 100.000000000000000000
     Size.PlatformDefault = False
     TabOrder = 0
@@ -20,20 +20,20 @@ object Form_base: TForm_base
       Align = Contents
       Corners = [BottomLeft, BottomRight]
       Fill.Color = xFF0098ED
-      Size.Width = 372.000000000000000000
+      Size.Width = 400.000000000000000000
       Size.Height = 100.000000000000000000
       Size.PlatformDefault = False
     end
     object Layout_centralSup: TLayout
       Align = Client
-      Size.Width = 172.000000000000000000
+      Size.Width = 200.000000000000000000
       Size.Height = 100.000000000000000000
       Size.PlatformDefault = False
       TabOrder = 2
     end
     object Layout_direita: TLayout
       Align = Right
-      Position.X = 272.000000000000000000
+      Position.X = 300.000000000000000000
       Size.Width = 100.000000000000000000
       Size.Height = 100.000000000000000000
       Size.PlatformDefault = False

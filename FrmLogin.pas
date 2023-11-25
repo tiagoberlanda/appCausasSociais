@@ -115,10 +115,11 @@ begin
         Application.MainForm := FormPrincipal;
 
         //Coloca E-mail (usuario) na TagString da Label Nome Usuário
-        FormPrincipal.Label_nomeUsuario.tagString := Edit_email.Text;
+        FormPrincipal.Label_nome.tagString := Edit_email.Text;
 
         //Coloca Nome do usuario na da Label Nome Usuário
         FormPrincipal.Label_nomeUsuario.text := 'Logado como: ' + DM_Conexao.RetornaNomePeloEmail(Edit_email.text);
+
 
         FormPrincipal.show;
         FormLogin.close;

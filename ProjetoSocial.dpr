@@ -15,7 +15,9 @@ uses
   FrmProjetos in 'FrmProjetos.pas' {FormProjetos},
   FrmProjetoAdd in 'FrmProjetoAdd.pas' {FormProjetoAdd},
   FrmCausasAdd in 'FrmCausasAdd.pas' {FormCausasAdd},
-  FrmConta in 'FrmConta.pas' {FormConta};
+  FrmConta in 'FrmConta.pas' {FormConta},
+  FrmPublicacao in 'FrmPublicacao.pas' {FormPublicacao},
+  FrmComentario in 'FrmComentario.pas' {FormComentario};
 
 {$R *.res}
 
@@ -23,6 +25,6 @@ begin
   Application.Initialize;
   Application.CreateForm(TDM_Conexao, DM_Conexao);
   Application.CreateForm(TFormLogin, FormLogin);
-  Application.CreateForm(TFormConta, FormConta);
+  Application.CreateForm(TFormComentario, FormComentario);
   Application.Run;
 end.

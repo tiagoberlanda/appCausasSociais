@@ -482,7 +482,7 @@ object FormLogin: TFormLogin
     Size.PlatformDefault = False
     TextSettings.Font.Family = 'Arial'
     TextSettings.HorzAlign = Center
-    Text = 'Vers'#227'o:  1.0.3'
+    Text = 'Vers'#227'o:  1.0.5'
     TabOrder = 2
   end
 end

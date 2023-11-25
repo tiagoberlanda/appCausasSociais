@@ -39,6 +39,7 @@ type
     function ExcluiCausaId(id: integer): Boolean;
     function ExcluiContaId(id: integer): Boolean;
     function RetornaAdmId(id: integer): Integer;
+    function InsereComentario(idCausa, idUsuario : integer; nome : string): Boolean;
   end;
 
 var
@@ -341,6 +342,45 @@ begin
       FD_Query.ParamByName('ComoAjudar').AsString := comoAjudar;
       FD_Query.ParamByName('Objetivo').AsString := objetivo;
 
+      FD_Query.ExecSQL;
+      Erro := False;
+    except
+      Erro := True;
+    end;
+  finally
+    if Erro = True then
+    begin
+      Result := False; //Se retornar False é que deu algum erro
+    end
+    else
+    begin
+      Result := True; //Se retornar True é porque está tudo certo
+    end;
+
+  end;
+
+end;
+
+function TDM_Conexao.InsereComentario(idCausa, idUsuario: integer;
+  nome: string): Boolean;
+var
+  Erro: boolean;
+  data : string;
+begin
+
+  FD_Conexao.Close;
+  FD_Conexao.Open();
+  FD_Query.Close;
+  FD_Query.SQL.Clear;
+
+  try
+    try
+      FD_Query.SQL.Add('insert into comentarios (idCausa,idUsuario,comentario,data) ' +
+      'Values (:idCausa,:idUsuario,:comentario,:data) ');
+      FD_Query.ParamByName('idCausa').AsInteger := idCausa;
+      FD_Query.ParamByName('idUsuario').AsInteger := idUsuario;
+      FD_Query.ParamByName('comentario').AsString := nome;
+      FD_Query.ParamByName('data').AsDateTime := StrToDateTime(FormatDateTime('dd/mm/yyyy hh:mm:ss', now));
       FD_Query.ExecSQL;
       Erro := False;
     except

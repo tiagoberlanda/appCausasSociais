@@ -63,10 +63,7 @@ begin
     with ListView_projetos.Items.Add do
     begin
       TagString := DM_Conexao.FD_Query.FieldByName('id').AsString;
-
-
       // Adiciona o ID e Nome
-
       TListItemText(Objects.FindDrawable('id')).Text := DM_Conexao.FD_Query.FieldByName('id').AsString;
       TListItemText(Objects.FindDrawable('projeto')).Text := DM_Conexao.FD_Query.FieldByName('nome').AsString;
 

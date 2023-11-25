@@ -2,22 +2,30 @@
 <BorlandProject>
 	<Transactions>
     <Transaction>2023/10/24 20:38:41.000.582,=C:\Users\berla\OneDrive - UNIVALI\how9 e how10\Projeto Social\Unit1.pas</Transaction>
-    <Transaction>2023/10/24 20:38:59.000.768,C:\Users\berla\OneDrive - UNIVALI\how9 e how10\Projeto Social\FrmCausas.pas=C:\Users\berla\OneDrive - UNIVALI\how9 e how10\Projeto Social\Unit1.pas</Transaction>
-    <Transaction>2023/10/24 20:38:59.000.768,C:\Users\berla\OneDrive - UNIVALI\how9 e how10\Projeto Social\FrmCausas.fmx=C:\Users\berla\OneDrive - UNIVALI\how9 e how10\Projeto Social\Unit1.fmx</Transaction>
+    <Transaction>2023/10/24 20:38:59.000.768,C:\Users\berla\OneDrive - UNIVALI\how9 e how10\Projeto Social\Unit1.fmx=C:\Users\berla\OneDrive - UNIVALI\how9 e how10\Projeto Social\FrmCausas.fmx</Transaction>
+    <Transaction>2023/10/24 20:38:59.000.768,C:\Users\berla\OneDrive - UNIVALI\how9 e how10\Projeto Social\Unit1.pas=C:\Users\berla\OneDrive - UNIVALI\how9 e how10\Projeto Social\FrmCausas.pas</Transaction>
     <Transaction>2023/10/24 20:48:59.000.567,=C:\Users\berla\OneDrive - UNIVALI\how9 e how10\Projeto Social\Unit1.pas</Transaction>
-    <Transaction>2023/10/24 20:49:15.000.442,C:\Users\berla\OneDrive - UNIVALI\how9 e how10\Projeto Social\Unit1.fmx=C:\Users\berla\OneDrive - UNIVALI\how9 e how10\Projeto Social\FrmProjetos.fmx</Transaction>
-    <Transaction>2023/10/24 20:49:15.000.442,C:\Users\berla\OneDrive - UNIVALI\how9 e how10\Projeto Social\Unit1.pas=C:\Users\berla\OneDrive - UNIVALI\how9 e how10\Projeto Social\FrmProjetos.pas</Transaction>
+    <Transaction>2023/10/24 20:49:15.000.442,C:\Users\berla\OneDrive - UNIVALI\how9 e how10\Projeto Social\FrmProjetos.fmx=C:\Users\berla\OneDrive - UNIVALI\how9 e how10\Projeto Social\Unit1.fmx</Transaction>
+    <Transaction>2023/10/24 20:49:15.000.442,C:\Users\berla\OneDrive - UNIVALI\how9 e how10\Projeto Social\FrmProjetos.pas=C:\Users\berla\OneDrive - UNIVALI\how9 e how10\Projeto Social\Unit1.pas</Transaction>
     <Transaction>2023/10/24 20:52:21.000.763,=C:\Users\berla\OneDrive - UNIVALI\how9 e how10\Projeto Social\Unit1.pas</Transaction>
-    <Transaction>2023/10/24 20:52:39.000.488,C:\Users\berla\OneDrive - UNIVALI\how9 e how10\Projeto Social\Unit1.pas=C:\Users\berla\OneDrive - UNIVALI\how9 e how10\Projeto Social\FrmProjetoAdd.pas</Transaction>
-    <Transaction>2023/10/24 20:52:39.000.488,C:\Users\berla\OneDrive - UNIVALI\how9 e how10\Projeto Social\Unit1.fmx=C:\Users\berla\OneDrive - UNIVALI\how9 e how10\Projeto Social\FrmProjetoAdd.fmx</Transaction>
+    <Transaction>2023/10/24 20:52:39.000.488,C:\Users\berla\OneDrive - UNIVALI\how9 e how10\Projeto Social\FrmProjetoAdd.fmx=C:\Users\berla\OneDrive - UNIVALI\how9 e how10\Projeto Social\Unit1.fmx</Transaction>
+    <Transaction>2023/10/24 20:52:39.000.488,C:\Users\berla\OneDrive - UNIVALI\how9 e how10\Projeto Social\FrmProjetoAdd.pas=C:\Users\berla\OneDrive - UNIVALI\how9 e how10\Projeto Social\Unit1.pas</Transaction>
     <Transaction>2023/11/16 22:22:12.000.358,=C:\Users\berla\OneDrive - UNIVALI\how9 e how10\Projeto Social\Unit1.pas</Transaction>
-    <Transaction>2023/11/16 22:22:26.000.236,C:\Users\berla\OneDrive - UNIVALI\how9 e how10\Projeto Social\FrmCausasAdd.pas=C:\Users\berla\OneDrive - UNIVALI\how9 e how10\Projeto Social\Unit1.pas</Transaction>
-    <Transaction>2023/11/16 22:22:26.000.236,C:\Users\berla\OneDrive - UNIVALI\how9 e how10\Projeto Social\FrmCausasAdd.fmx=C:\Users\berla\OneDrive - UNIVALI\how9 e how10\Projeto Social\Unit1.fmx</Transaction>
-    <Transaction>2023/11/22 19:50:00.952,=C:\Users\berla\OneDrive - UNIVALI\how9 e how10\Projeto Social\Unit1.pas</Transaction>
-    <Transaction>2023/11/22 19:50:20.565,C:\Users\berla\OneDrive - UNIVALI\how9 e how10\Projeto Social\FrmConta.pas=C:\Users\berla\OneDrive - UNIVALI\how9 e how10\Projeto Social\Unit1.pas</Transaction>
-    <Transaction>2023/11/22 19:50:20.565,C:\Users\berla\OneDrive - UNIVALI\how9 e how10\Projeto Social\FrmConta.fmx=C:\Users\berla\OneDrive - UNIVALI\how9 e how10\Projeto Social\Unit1.fmx</Transaction>
+    <Transaction>2023/11/16 22:22:26.000.236,C:\Users\berla\OneDrive - UNIVALI\how9 e how10\Projeto Social\Unit1.pas=C:\Users\berla\OneDrive - UNIVALI\how9 e how10\Projeto Social\FrmCausasAdd.pas</Transaction>
+    <Transaction>2023/11/16 22:22:26.000.236,C:\Users\berla\OneDrive - UNIVALI\how9 e how10\Projeto Social\Unit1.fmx=C:\Users\berla\OneDrive - UNIVALI\how9 e how10\Projeto Social\FrmCausasAdd.fmx</Transaction>
+    <Transaction>2023/11/22 19:50:00.000.952,=C:\Users\berla\OneDrive - UNIVALI\how9 e how10\Projeto Social\Unit1.pas</Transaction>
+    <Transaction>2023/11/22 19:50:20.000.565,C:\Users\berla\OneDrive - UNIVALI\how9 e how10\Projeto Social\Unit1.pas=C:\Users\berla\OneDrive - UNIVALI\how9 e how10\Projeto Social\FrmConta.pas</Transaction>
+    <Transaction>2023/11/22 19:50:20.000.565,C:\Users\berla\OneDrive - UNIVALI\how9 e how10\Projeto Social\Unit1.fmx=C:\Users\berla\OneDrive - UNIVALI\how9 e how10\Projeto Social\FrmConta.fmx</Transaction>
+    <Transaction>2023/11/23 20:17:48.000.261,=C:\Users\berla\OneDrive - UNIVALI\how9 e how10\Projeto Social\Unit1.pas</Transaction>
+    <Transaction>2023/11/23 20:18:04.000.458,C:\Users\berla\OneDrive - UNIVALI\how9 e how10\Projeto Social\Unit1.pas=C:\Users\berla\OneDrive - UNIVALI\how9 e how10\Projeto Social\FrmPublicacao.pas</Transaction>
+    <Transaction>2023/11/23 20:18:04.000.458,C:\Users\berla\OneDrive - UNIVALI\how9 e how10\Projeto Social\Unit1.fmx=C:\Users\berla\OneDrive - UNIVALI\how9 e how10\Projeto Social\FrmPublicacao.fmx</Transaction>
+    <Transaction>2023/11/24 20:42:21.788,=C:\Users\berla\OneDrive - UNIVALI\how9 e how10\Projeto Social\Unit1.pas</Transaction>
+    <Transaction>2023/11/24 20:42:54.429,C:\Users\berla\OneDrive - UNIVALI\how9 e how10\Projeto Social\FrmComentarios.fmx=C:\Users\berla\OneDrive - UNIVALI\how9 e how10\Projeto Social\Unit1.fmx</Transaction>
+    <Transaction>2023/11/24 20:42:54.429,C:\Users\berla\OneDrive - UNIVALI\how9 e how10\Projeto Social\FrmComentarios.pas=C:\Users\berla\OneDrive - UNIVALI\how9 e how10\Projeto Social\Unit1.pas</Transaction>
+    <Transaction>2023/11/24 20:43:00.365,C:\Users\berla\OneDrive - UNIVALI\how9 e how10\Projeto Social\FrmComentario.pas=C:\Users\berla\OneDrive - UNIVALI\how9 e how10\Projeto Social\FrmComentarios.pas</Transaction>
+    <Transaction>2023/11/24 20:43:00.365,C:\Users\berla\OneDrive - UNIVALI\how9 e how10\Projeto Social\FrmComentario.fmx=C:\Users\berla\OneDrive - UNIVALI\how9 e how10\Projeto Social\FrmComentarios.fmx</Transaction>
   </Transactions>
 	<ActiveMobileDevice>
-		<NoProfile Android="" Android64=""/>
+		<NoProfile Android="RX8RA0A8JEX" Android64=""/>
 	</ActiveMobileDevice>
 </BorlandProject>
